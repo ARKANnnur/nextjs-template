@@ -1,4 +1,4 @@
-# {{PROJECT_NAME}}
+# nextjs-template
 
 Next.js 16 Starter Template yang distrukturkan menggunakan arsitektur **Feature-Driven / Vertical Slicing**. Project ini siap digunakan untuk pengembangan frontend skala menengah hingga besar dengan fungsionalitas state management, persistence, dan form validation yang aman.
 
@@ -73,7 +73,7 @@ npm run setup
 ```
 *Script ini akan otomatis:*
 1. Meminta Anda memasukkan nama project baru.
-2. Mengganti semua teks placeholder `{{PROJECT_NAME}}` di file `package.json`, `package-lock.json`, dan `README.md`.
+2. Mengganti semua teks placeholder `nextjs-template` di file `package.json`, `package-lock.json`, dan `README.md`.
 3. Mengatur ulang repository Git baru (menghapus riwayat commit template).
 4. Menghapus script setup itu sendiri agar bersih.
 
