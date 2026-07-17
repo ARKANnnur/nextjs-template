@@ -10,6 +10,8 @@ jobs:
     # Hanya berjalan sekali saat repo baru dibuat dari template
     if: github.repository != 'username-lu/nama-repo-template-asal'
     runs-on: ubuntu-latest
+    permissions:       
+      contents: write 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
