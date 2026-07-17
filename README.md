@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# {{PROJECT_NAME}}
 
-## Getting Started
+Next.js 16 Starter Template yang distrukturkan menggunakan arsitektur **Feature-Driven / Vertical Slicing**. Project ini siap digunakan untuk pengembangan frontend skala menengah hingga besar dengan fungsionalitas state management, persistence, dan form validation yang aman.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Tech Stack
+
+Template ini dibekali dengan modul-modul modern berikut:
+
+### Core Framework
+*   **Next.js 16 (App Router)** - Framework React modern dengan performa Turbopack.
+*   **React 19 & React DOM 19** - Library antarmuka komponen terbaru.
+*   **TypeScript** - Pengetikan statis yang aman untuk keandalan kode.
+
+### Styling & UI
+*   **Tailwind CSS v4** - Framework utility-first CSS dengan compiler mesin baru yang super cepat.
+*   **PostCSS** - Pemrosesan CSS dengan standar web terbaru.
+
+### State Management & Persistence
+*   **Redux Toolkit & React Redux** - Manajemen state global yang andal dan terstruktur.
+*   **Redux Persist** - Penyimpanan state otomatis ke LocalStorage dengan penanganan SSR-safe.
+*   **Redux Persist Transform Encrypt** - Mengamankan data state yang tersimpan dengan enkripsi kunci rahasia.
+
+### Form & Validation
+*   **React Hook Form** - Manajemen form performa tinggi tanpa re-render berlebih.
+*   **Zod** - Skema validasi data deklaratif yang terintegrasi dengan TypeScript.
+*   **@hookform/resolvers** - Adapter untuk menyambungkan Zod ke React Hook Form.
+
+### Testing & Mocking
+*   **Vitest** - Runner test berbasis Vite yang sangat cepat.
+*   **React Testing Library** - Pengujian komponen React berbasis perilaku pengguna.
+*   **MSW (Mock Service Worker)** - Mocking API network level untuk unit & integration testing yang solid.
+
+---
+
+## 📂 Struktur Folder (Vertical Slicing)
+
+Arsitektur project ini memisahkan fitur-fitur utama ke dalam potongan mandiri (*Vertical Slices*) di dalam folder `features/`, menjaganya tetap terisolasi dan mudah dikelola:
+
+```text
+├── app/                      # Routing & Page Layout Layer (Next.js App Router)
+├── features/                 # Tempat potongan fitur mandiri (Vertical Slices)
+│   ├── auth/                 # Fitur Authentication (components, hooks, store, types)
+│   │   ├── components/       # UI khusus auth
+│   │   ├── store/            # Redux Slice & Thunks khusus auth
+│   │   └── index.ts          # Public API / Entrypoint fitur auth
+│   └── users/                # Fitur User (Profile, settings, dll)
+├── components/               # Komponen global / reusable (ui/ & common/)
+├── hooks/                    # Global React custom hooks (e.g. useDebounce)
+├── lib/                      # Konfigurasi library & utilities global (e.g. store, cn)
+├── services/                 # Konfigurasi global API client / fetcher
+└── types/                    # Tipe data TypeScript global
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚙️ Cara Penggunaan & Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Ikuti langkah-langkah di bawah ini untuk memulai project baru menggunakan template ini:
 
-## Learn More
+### 1. Clone Repository
+Clone template ini ke folder komputer lokal Anda:
+```bash
+git clone <repository-url> nama-project-anda
+cd nama-project-anda
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Jalankan Script Setup
+Template ini dilengkapi dengan script inisialisasi interaktif untuk menyesuaikan nama project secara otomatis:
+```bash
+npm run setup
+```
+*Script ini akan otomatis:*
+1. Meminta Anda memasukkan nama project baru.
+2. Mengganti semua teks placeholder `{{PROJECT_NAME}}` di file `package.json`, `package-lock.json`, dan `README.md`.
+3. Mengatur ulang repository Git baru (menghapus riwayat commit template).
+4. Menghapus script setup itu sendiri agar bersih.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Install Dependencies (Jika belum ter-install)
+```bash
+npm install
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. Jalankan Development Server
+```bash
+npm run dev
+```
+Buka [http://localhost:3000](http://localhost:3000) pada browser Anda untuk melihat demo modul Auth dan User Profile yang saling tersinkronisasi.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Perintah Terminal Lainnya
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*   **Build untuk Production:**
+    ```bash
+    npm run build
+    ```
+*   **Run Production Server:**
+    ```bash
+    npm run start
+    ```
+*   **Linting Kode:**
+    ```bash
+    npm run lint
+    ```
+*   **Menjalankan Unit Test (Vitest):**
+    ```bash
+    npx vitest
+    ```
